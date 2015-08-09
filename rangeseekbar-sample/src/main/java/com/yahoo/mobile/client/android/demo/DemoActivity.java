@@ -18,10 +18,13 @@ package com.yahoo.mobile.client.android.demo;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.widget.LinearLayout;
+import android.util.Log;
+
 import com.yahoo.mobile.client.android.util.rangeseekbar.RangeSeekBar;
 
 public class DemoActivity extends Activity {
+
+    private static final String TAG = "DemoActivity";
 
     /**
      * Called when the activity is first created.
@@ -31,15 +34,11 @@ public class DemoActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        // Setup the new range seek bar
-        RangeSeekBar<Integer> rangeSeekBar = new RangeSeekBar<Integer>(this);
-        // Set the range
-        rangeSeekBar.setRangeValues(15, 90);
-        rangeSeekBar.setSelectedMinValue(20);
-        rangeSeekBar.setSelectedMaxValue(88);
-
-        // Add to layout
-        LinearLayout layout = (LinearLayout) findViewById(R.id.seekbar_placeholder);
-        layout.addView(rangeSeekBar);
+        ((RangeSeekBar)findViewById(R.id.sb_setter_0)).setOnRangeSeekBarChangeListener(new RangeSeekBar.OnRangeSeekBarChangeListener() {
+            @Override
+            public void onRangeSeekBarValuesChanged(RangeSeekBar bar, Object minValue, Object maxValue) {
+                Log.d(TAG, "single thumb current value: " + maxValue);
+            }
+        });
     }
 }
