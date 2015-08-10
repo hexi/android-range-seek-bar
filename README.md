@@ -18,7 +18,7 @@ This is a fork of the following project: https://code.google.com/p/range-seek-ba
 
 It provides a SeekBar similar to the default Android one, but with two thumb controls allowing a range to be selected, and some other extras as well.
 
-![](demo_screenshot.png)
+![](demo-rang-seek-bar.jpg)
 
 # Modifications in fork from original project
 
